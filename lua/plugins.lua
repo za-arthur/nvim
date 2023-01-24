@@ -36,7 +36,7 @@ function M.setup()
   local function plugins(use)
     use { "wbthomason/packer.nvim" }
 
-    -- Colorscheme
+    -- everforest
     use {
       "sainnhe/everforest",
       config = function()
@@ -44,7 +44,7 @@ function M.setup()
       end,
     }
 
-    -- Git
+    -- neogit
     use {
       "TimUntersberger/neogit",
       requires = "nvim-lua/plenary.nvim",
@@ -60,6 +60,28 @@ function M.setup()
         require("config.whichkey").setup()
       end,
     }
+
+    -- lualine
+    use {
+      "nvim-lualine/lualine.nvim",
+      event = "VimEnter",
+      config = function()
+        require("config.lualine").setup()
+      end,
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    }
+
+    -- nvim-tree
+    use {
+      "kyazdani42/nvim-tree.lua",
+      requires = {
+        "kyazdani42/nvim-web-devicons",
+      },
+      cmd = { "NvimTreeToggle", "NvimTreeClose" },
+        config = function()
+          require("config.nvimtree").setup()
+        end,
+     }
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
