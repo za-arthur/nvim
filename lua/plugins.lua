@@ -81,7 +81,31 @@ function M.setup()
         config = function()
           require("config.nvimtree").setup()
         end,
-     }
+    }
+
+    -- bufferline
+    use {
+      "akinsho/nvim-bufferline.lua",
+      event = "BufReadPre",
+      wants = "nvim-web-devicons",
+      config = function()
+        require("config.bufferline").setup()
+      end,
+    }
+
+    -- treesitter
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      opt = true,
+      event = "BufRead",
+      run = ":TSUpdate",
+      config = function()
+        require("config.treesitter").setup()
+      end,
+      requires = {
+        { "nvim-treesitter/nvim-treesitter-textobjects" },
+      },
+    }
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
