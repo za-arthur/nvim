@@ -6,6 +6,11 @@ local opt = vim.opt
 api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+
+opt.list = true
+opt.listchars:append "space:⋅"
 
 opt.termguicolors = true -- Enable colors in terminal
 opt.hlsearch = true --Set highlight on search
