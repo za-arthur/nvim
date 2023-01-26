@@ -70,6 +70,13 @@ return require('packer').startup({function(use)
     end,
   }
 
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require('gitsigns').setup()
+    end,
+  }
+
   -- File tree
   use {
     "nvim-tree/nvim-tree.lua",

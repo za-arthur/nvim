@@ -10,7 +10,12 @@ function M.setup()
       number = true,
     },
     filters = {
-      dotfiles = true,
+      custom = {
+        "\\.git",
+        ".cache",
+        "node_modules",
+        "__pycache__",
+      },
     },
   }
 end

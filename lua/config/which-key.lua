@@ -23,7 +23,10 @@ function M.setup()
     ["w"] = { "<cmd>update!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
 
-    ["t"] = { "<cmd>NvimTreeToggle<cr>", "NvimTree"},
+    e = { name = "Tree",
+      e = { "<cmd>NvimTreeToggle<cr>", "nvim-tree on/off" },
+      f = { "<cmd>NvimTreeFindFileToggle<cr>", "nvim-tree current file" },
+    },
 
     b = {
       name = "Buffer",
