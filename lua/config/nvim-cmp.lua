@@ -81,12 +81,7 @@ function M.setup()
       { name = "nvim_lua" },
       { name = "path" },
       { name = "spell" },
-      { name = "emoji" },
       { name = "calc" },
-    },
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      winhighlight = "NormalFloat:NormalFloat,FloatBorder:TelescopeBorder",
     },
   }
 
@@ -105,6 +100,10 @@ function M.setup()
       { name = "cmdline" },
     }),
   })
+
+  -- Auto pairs
+  local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 end
 
 return M
