@@ -36,7 +36,7 @@ return require('packer').startup({function(use)
     },
   }
 
-  -- lualine
+  -- Statusline
   use {
     "nvim-lualine/lualine.nvim",
     event = "VimEnter",
@@ -46,7 +46,7 @@ return require('packer').startup({function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   }
 
-  -- bufferline
+  -- Tabs
   use {
     "akinsho/nvim-bufferline.lua",
     event = "BufReadPre",
@@ -56,7 +56,7 @@ return require('packer').startup({function(use)
     end,
   }
 
-  -- WhichKey
+  -- Shortcuts
   use {
     "folke/which-key.nvim",
     config = function()
@@ -64,7 +64,7 @@ return require('packer').startup({function(use)
     end,
   }
 
-  -- neogit
+  -- Git support
   use {
     "TimUntersberger/neogit",
     requires = "nvim-lua/plenary.nvim",
@@ -73,15 +73,23 @@ return require('packer').startup({function(use)
     end,
   }
 
-  -- tree
+  -- File tree
   use {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua",
     requires = {
-      "kyazdani42/nvim-web-devicons",
+      "nvim-tree/nvim-web-devicons",
     },
     cmd = { "NvimTreeToggle", "NvimTreeClose" },
     config = function()
       require("config.nvimtree").setup()
+    end,
+  }
+
+  -- Comment
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
     end,
   }
 

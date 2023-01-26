@@ -23,6 +23,8 @@ function M.setup()
     ["w"] = { "<cmd>update!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
 
+    ["t"] = { "<cmd>NvimTreeToggle<cr>", "NvimTree"},
+
     b = {
       name = "Buffer",
       c = { "<Cmd>bd!<Cr>", "Close current buffer" },
@@ -50,7 +52,7 @@ function M.setup()
 
     g = {
       name = "Git",
-      s = { "<cmd>Neogit<CR>", "Status" },
+      s = { "<cmd>Neogit<cr>", "Status" },
     },
   }
 
