@@ -18,22 +18,19 @@ return require('packer').startup({function(use)
     event = "BufRead",
     run = ":TSUpdate",
     config = function()
-      require("config.treesitter").setup()
+      require("config.nvim-treesitter").setup()
     end,
     requires = {
       { "nvim-treesitter/nvim-treesitter-textobjects" },
     },
   }
 
-  -- indent-blankline
+  -- indentscope
   use {
-    "lukas-reineke/indent-blankline.nvim",
+    "echasnovski/mini.indentscope",
     config = function()
-      require("config.indentblankline").setup()
-    end,
-    requires = {
-      { "nvim-treesitter/nvim-treesitter" },
-    },
+      require("config.mini-indentscope").setup()
+    end
   }
 
   -- Statusline
@@ -52,7 +49,7 @@ return require('packer').startup({function(use)
     event = "BufReadPre",
     wants = "nvim-web-devicons",
     config = function()
-      require("config.bufferline").setup()
+      require("config.nvim-bufferline").setup()
     end,
   }
 
@@ -60,7 +57,7 @@ return require('packer').startup({function(use)
   use {
     "folke/which-key.nvim",
     config = function()
-      require("config.whichkey").setup()
+      require("config.which-key").setup()
     end,
   }
 
@@ -81,7 +78,7 @@ return require('packer').startup({function(use)
     },
     cmd = { "NvimTreeToggle", "NvimTreeClose" },
     config = function()
-      require("config.nvimtree").setup()
+      require("config.nvim-tree").setup()
     end,
   }
 
