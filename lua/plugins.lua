@@ -18,7 +18,7 @@ return require('packer').startup({function(use)
     event = "BufRead",
     run = ":TSUpdate",
     config = function()
-      require("config.nvim-treesitter").setup()
+      require("config.treesitter").setup()
     end,
     requires = {
       { "nvim-treesitter/nvim-treesitter-textobjects" },
@@ -49,7 +49,7 @@ return require('packer').startup({function(use)
     event = "BufReadPre",
     wants = "nvim-web-devicons",
     config = function()
-      require("config.nvim-bufferline").setup()
+      require("config.bufferline").setup()
     end,
   }
 
@@ -85,7 +85,7 @@ return require('packer').startup({function(use)
     },
     cmd = { "NvimTreeToggle", "NvimTreeClose" },
     config = function()
-      require("config.nvim-tree").setup()
+      require("config.tree").setup()
     end,
   }
 
@@ -103,7 +103,7 @@ return require('packer').startup({function(use)
     event = "InsertEnter",
     opt = true,
     config = function()
-      require("config.nvim-cmp").setup()
+      require("config.cmp").setup()
     end,
     wants = { "LuaSnip" },
     requires = {
@@ -127,13 +127,28 @@ return require('packer').startup({function(use)
     },
   }
 
+  -- Autopairs
   use {
     "windwp/nvim-autopairs",
     wants = "nvim-treesitter",
     module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
     config = function()
-      require("config.nvim-autopairs").setup()
+      require("config.autopairs").setup()
     end,
+  }
+
+  -- LSP
+  use {
+    "neovim/nvim-lspconfig",
+    opt = true,
+    event = "BufReadPre",
+    wants = { "nvim-lsp-installer" },
+    config = function()
+      require("config.lsp").setup()
+    end,
+    requires = {
+      "williamboman/nvim-lsp-installer",
+    },
   }
 
   end,
