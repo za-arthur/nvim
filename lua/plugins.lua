@@ -96,32 +96,21 @@ return require('packer').startup({function(use)
 
   -- Completion
   use {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    opt = true,
-    config = function()
-      require("config.cmp").setup()
-    end,
-    wants = { "LuaSnip" },
+    'hrsh7th/nvim-cmp',
     requires = {
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lua",
-      "ray-x/cmp-treesitter",
-      "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-calc",
-      "f3fora/cmp-spell",
-      {
-        "L3MON4D3/LuaSnip",
-        wants = "friendly-snippets",
-        config = function()
-          require("config.luasnip").setup()
-        end,
-      },
-      "rafamadriz/friendly-snippets",
-      disable = false,
+      'L3MON4D3/LuaSnip',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-path',
+      'onsails/lspkind-nvim',
+      'saadparwaiz1/cmp_luasnip',
     },
+    config = function()
+      require('config.cmp').setup()
+    end,
   }
 
   -- Autopairs

@@ -6,27 +6,32 @@ function M.setup()
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
   end
 
-  local luasnip = require "luasnip"
-  local cmp = require "cmp"
+  local luasnip = require("luasnip")
+  local cmp = require("cmp")
+  local lspkind = require("lspkind")
 
   cmp.setup {
-    completion = { completeopt = "menu,menuone,noinsert", keyword_length = 1 },
+    completion = { completeopt = "menuone,longest,preview", keyword_length = 1 },
     experimental = { native_menu = false, ghost_text = false },
+    view = {
+      entries = { name = "custom", selection_order = "near_cursor" },
+    },
     snippet = {
       expand = function(args)
         require("luasnip").lsp_expand(args.body)
       end,
     },
     formatting = {
-      format = function(entry, vim_item)
-        vim_item.menu = ({
+      format = lspkind.cmp_format({
+        mode = "symbol_text",
+        menu = ({
           buffer = "[Buffer]",
-          luasnip = "[Snip]",
+          nvim_lsp = "[LSP]",
+          luasnip = "[LuaSnip]",
           nvim_lua = "[Lua]",
           treesitter = "[Treesitter]",
-        })[entry.source.name]
-        return vim_item
-      end,
+        })
+      }),
     },
     mapping = {
       ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
@@ -75,13 +80,12 @@ function M.setup()
       }),
     },
     sources = {
-      { name = "treesitter" },
       { name = "buffer" },
       { name = "luasnip" },
       { name = "nvim_lua" },
       { name = "path" },
-      { name = "spell" },
-      { name = "calc" },
+      { name = "nvim_lsp" },
+      { name = "nvim_lsp_signature_help" },
     },
   }
 
@@ -102,8 +106,11 @@ function M.setup()
   })
 
   -- Auto pairs
-  local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
+  local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+  cmp.event:on(
+    "confirm_done",
+    cmp_autopairs.on_confirm_done()
+  )
 end
 
 return M
