@@ -4,10 +4,21 @@ function M.setup()
   require("nvim-tree").setup {
     disable_netrw = true,
     hijack_netrw = true,
-    open_on_setup = true,
-    open_on_setup_file = true,
-    view = {
-      number = true,
+    diagnostics = {
+      enable = true,
+      show_on_dirs = true,
+    },
+    modified = {
+      enable = true,
+    },
+    renderer = {
+      special_files = {
+        "go.mod",
+        "go.sum",
+        "Makefile",
+        "README.md",
+        "readme.md",
+      },
     },
     filters = {
       custom = {

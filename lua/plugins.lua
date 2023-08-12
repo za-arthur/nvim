@@ -11,7 +11,6 @@ return require('packer').startup({function(use)
     end,
   }
 
-  -- treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     opt = true,
@@ -25,7 +24,6 @@ return require('packer').startup({function(use)
     },
   }
 
-  -- indentscope
   use {
     "echasnovski/mini.indentscope",
     config = function()
@@ -43,14 +41,12 @@ return require('packer').startup({function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   }
 
-  -- Tabs
   use {
-    "akinsho/nvim-bufferline.lua",
-    event = "BufReadPre",
-    wants = "nvim-web-devicons",
+    "ibhagwan/fzf-lua",
     config = function()
-      require("config.bufferline").setup()
+      require("fzf-lua").setup()
     end,
+    requires = { "nvim-tree/nvim-web-devicons" },
   }
 
   -- Shortcuts
@@ -63,7 +59,7 @@ return require('packer').startup({function(use)
 
   -- Git support
   use {
-    "TimUntersberger/neogit",
+    "NeogitOrg/neogit",
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("config.neogit").setup()
@@ -72,6 +68,7 @@ return require('packer').startup({function(use)
 
   use {
     "lewis6991/gitsigns.nvim",
+    event = "BufReadPost",
     config = function()
       require('gitsigns').setup()
     end,
@@ -137,20 +134,6 @@ return require('packer').startup({function(use)
     end,
   }
 
-  -- LSP
-  use {
-    "neovim/nvim-lspconfig",
-    opt = true,
-    event = "BufReadPre",
-    wants = { "nvim-lsp-installer" },
-    config = function()
-      require("config.lsp").setup()
-    end,
-    requires = {
-      "williamboman/nvim-lsp-installer",
-    },
-  }
-
   end,
   config = {
     display = {
@@ -160,3 +143,17 @@ return require('packer').startup({function(use)
     }
   }
 })
+
+-- Check:
+-- echasnovski/mini.cursorword
+-- echasnovski/mini.files
+-- echasnovski/mini.surround
+-- sessions
+-- highlight and trim trailing whitespaces
+-- telescope
+-- tabby.nvim
+
+-- TODO:
+-- Configure fzf-lua keymaps
+-- Configure rg and fd
+-- Configure gitsings keymaps

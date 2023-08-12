@@ -1,8 +1,7 @@
 local M = {}
 
 function M.setup()
-  local npairs = require "nvim-autopairs"
-  npairs.setup {
+  require("nvim-autopairs").setup {
     check_ts = true,
   }
 end
