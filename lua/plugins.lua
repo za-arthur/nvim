@@ -116,10 +116,20 @@ return require('packer').startup({function(use)
   -- Autopairs
   use {
     "windwp/nvim-autopairs",
-    wants = "nvim-treesitter",
-    module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
     config = function()
       require("config.autopairs").setup()
+    end,
+  }
+
+  -- LSP
+  use {
+    "neovim/nvim-lspconfig",
+    requires = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+    },
+    config = function()
+      require("config.lsp").setup()
     end,
   }
 
@@ -141,6 +151,10 @@ return require('packer').startup({function(use)
 -- highlight and trim trailing whitespaces
 -- telescope
 -- tabby.nvim
+-- code-action-menu
+-- formatter.nvim
+-- nvim-lint
+-- trouble.nvim
 
 -- TODO:
 -- Configure fzf-lua keymaps
