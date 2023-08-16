@@ -50,6 +50,11 @@ function M.setup()
             'vim',
             'require'
           },
+          disable = {
+            "missing-parameter",
+            "redundant-parameter",
+            "missing-fields",
+          }
         },
         workspace = {
           -- Make the server aware of Neovim runtime files

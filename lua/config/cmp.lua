@@ -10,7 +10,7 @@ function M.setup()
   local cmp = require("cmp")
   local lspkind = require("lspkind")
 
-  cmp.setup {
+  cmp.setup({
     completion = { completeopt = "menuone,longest,preview", keyword_length = 1 },
     experimental = { native_menu = false, ghost_text = false },
     view = {
@@ -98,7 +98,7 @@ function M.setup()
       { name = "nvim_lsp" },
       { name = "nvim_lsp_signature_help" },
     },
-  }
+  })
 
   -- Use buffer source for `/`
   cmp.setup.cmdline("/", {
