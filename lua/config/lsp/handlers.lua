@@ -3,6 +3,9 @@ local M = {}
 M.capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 function M.on_attach(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
   local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
   if client.supports_method("textDocument/formatting") then
@@ -32,14 +35,21 @@ function M.setup()
 
   -- Diagnostic configuration
   vim.diagnostic.config({
-    virtual_text = true,
+    virtual_text = false,
+    float = {
+      focusable = false,
+      style = "minimal",
+      source = "always",
+      header = "",
+      prefix = "",
+    },
     -- show signs
     signs = {
       active = signs,
     },
     update_in_insert = false,
     underline = true,
-    severity_sort = true,
+    severity_sort = false,
   })
 end
 

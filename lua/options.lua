@@ -1,9 +1,4 @@
-local g = vim.g
 local opt = vim.opt
-
--- Disable netrw for nvim-tree
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
 
 opt.list = true
 opt.listchars:append "space:⋅"

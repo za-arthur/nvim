@@ -1,14 +1,9 @@
-local M = {}
-
-function M.setup()
-  local luasnip = require "luasnip"
-
-  luasnip.config.set_config {
+local M = {
+  "L3MON4D3/LuaSnip",
+  opts = {
     history = false,
     updateevents = "TextChanged,TextChangedI",
-  }
-
-  require("luasnip/loaders/from_vscode").load()
-end
+  },
+}
 
 return M

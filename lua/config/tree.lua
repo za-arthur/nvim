@@ -1,7 +1,7 @@
-local M = {}
-
-function M.setup()
-  require("nvim-tree").setup {
+local M = {
+  "nvim-tree/nvim-tree.lua",
+  lazy = false,
+  opts = {
     disable_netrw = true,
     hijack_netrw = true,
     diagnostics = {
@@ -28,7 +28,14 @@ function M.setup()
         "__pycache__",
       },
     },
+  },
+  init = function()
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+  end,
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
   }
-end
+}
 
 return M

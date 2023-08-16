@@ -1,7 +1,7 @@
-local M = {}
-
-function M.setup()
-  require("lualine").setup {
+local M = {
+  "nvim-lualine/lualine.nvim",
+  event = "VeryLazy",
+  opts = {
     options = {
       icons_enabled = true,
       theme = "auto",
@@ -32,7 +32,8 @@ function M.setup()
     },
     tabline = {},
     extensions = {},
-  }
-end
+  },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+}
 
 return M

@@ -1,12 +1,11 @@
-local M = {}
-
-function M.setup()
-  local utils = require("utils")
-
-  require("nvim-treesitter.configs").setup {
+local M = {
+  "nvim-treesitter/nvim-treesitter",
+  event = "BufReadPost",
+  build = ":TSUpdate",
+  opts = {
     highlight = {
       enable = true,
-      disable = utils.is_large,
+      disable = require("utils").is_large,
     },
     ensure_installed = {
       "c",
@@ -36,7 +35,10 @@ function M.setup()
         }
       },
     },
-  }
-end
+  },
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
+}
 
 return M

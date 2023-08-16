@@ -1,9 +1,12 @@
-local M = {}
-
-function M.setup()
-  require("neogit").setup {
+local M = {
+  "NeogitOrg/neogit",
+  event = "VeryLazy",
+  opts = {
     disable_commit_confirmation = true,
-  }
-end
+  },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
+}
 
 return M
