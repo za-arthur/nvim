@@ -5,7 +5,7 @@ function M.setup()
 
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
-  
+
   vim.keymap.set('n', 'gD', ':FzfLua lsp_declarations<CR>', bufopts)
   vim.keymap.set('n', 'gd', ':FzfLua lsp_definitions<CR>', bufopts)
   vim.keymap.set('n', 'gi', ':FzfLua lsp_implementations<CR>', bufopts)

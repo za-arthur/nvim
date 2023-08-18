@@ -21,17 +21,8 @@ require("lazy").setup("config", {
 })
 
 -- Check:
--- echasnovski/mini.cursorword
--- echasnovski/mini.files
--- echasnovski/mini.surround
--- sessions
--- highlight and trim trailing whitespaces
--- telescope
--- tabby.nvim
--- code-action-menu
 -- formatter.nvim
 -- nvim-lint
--- trouble.nvim
 
 -- TODO:
 -- Configure fzf-lua keymaps

@@ -1,6 +1,9 @@
-local M ={
+local M = {
   "lewis6991/gitsigns.nvim",
-  event = "BufReadPost",
+  event = "BufReadPre",
+  opts = {
+    current_line_blame = true,
+  },
 }
 
 return M

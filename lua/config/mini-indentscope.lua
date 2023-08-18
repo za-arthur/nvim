@@ -3,7 +3,9 @@ local M = {
   event = "VeryLazy",
   opts = {
     draw = {
-      animation = require('mini.indentscope').gen_animation.none()
+      animation = function()
+        return 0
+      end,
     },
   },
 }
