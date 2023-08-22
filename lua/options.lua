@@ -9,11 +9,13 @@ opt.number = true             -- Make line numbers default
 opt.breakindent = true        -- Enable break indent
 opt.undofile = true           -- Save undo history
 opt.ignorecase = true         -- Case insensitive searching unless /C or capital in search
+opt.tabstop = 4               -- Display tabs as 4 spaces
+opt.shiftwidth = 4
 opt.smartcase = true          -- Smart case
 opt.updatetime = 250          -- Decrease update time
 opt.signcolumn = "yes"        -- Always show sign column
 opt.clipboard = "unnamedplus" -- Access system clipboard
-opt.timeoutlen = 300
+opt.timeoutlen = 500
 opt.colorcolumn = "80,120"    -- Ruler
 
 -- Highlight on yank
