@@ -30,12 +30,6 @@ local M = {
       f = {
         name = "Find",
       },
-      z = {
-        name = "Packer",
-        s = { "<cmd>PackerSync<cr>", "Sync" },
-        S = { "<cmd>PackerStatus<cr>", "Status" },
-        u = { "<cmd>PackerUpdate<cr>", "Update" },
-      },
       g = {
         name = "Git",
       },

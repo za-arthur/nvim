@@ -19,6 +19,3 @@ require("lazy").setup("config", {
     border = "single",
   },
 })
-
--- TODO:
--- Configure rg and fd
