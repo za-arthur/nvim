@@ -1,6 +1,7 @@
 local M = {}
 
 function M.setup()
+  -- LSP servers
   local servers = {
     "bashls",
     "clangd",
@@ -11,11 +12,14 @@ function M.setup()
   }
 
   require('mason').setup()
+
+  -- Configure mason-lspconfig
   require('mason-lspconfig').setup({
     ensure_installed = servers,
     automatic_installation = true,
   })
 
+  -- Configure lspconfig
   local lspconfig = require("lspconfig")
 
   local opts = {}

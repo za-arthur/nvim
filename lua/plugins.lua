@@ -17,14 +17,8 @@ require("lazy").setup("config", {
   },
   ui = {
     border = "single",
-  }
+  },
 })
 
--- Check:
--- formatter.nvim
--- nvim-lint
-
 -- TODO:
--- Configure fzf-lua keymaps
 -- Configure rg and fd
--- Configure gitsings keymaps

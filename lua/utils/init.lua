@@ -51,4 +51,36 @@ function M.toggle_diagnostics()
   end
 end
 
+function M.lazymap(lhs, rhs, desc, mode, opts)
+  local options = {
+    lhs,
+    rhs,
+    mode = mode or "n",
+    desc = desc,
+    noremap = true,
+    silent = true,
+  }
+
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+
+  return options
+end
+
+function M.keymap(lhs, rhs, desc, mode, opts)
+  local options = {
+    desc = desc,
+    noremap = true,
+    silent = true
+  }
+  mode = mode or "n"
+
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+
+  vim.keymap.set(mode, lhs, rhs, options)
+end
+
 return M

@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 local M = {
   "nvim-tree/nvim-tree.lua",
   lazy = false,
@@ -33,6 +35,10 @@ local M = {
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
   end,
+  keys = {
+    utils.lazymap("<leader>ee", "<cmd>NvimTreeToggle<cr>", "NvimTree Toggle"),
+    utils.lazymap("<leader>ef", "<cmd>NvimTreeFindFileToggle<cr>", "NvimTree Current file"),
+  },
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   }

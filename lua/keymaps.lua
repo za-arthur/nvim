@@ -20,6 +20,9 @@ vim.keymap.set('n', '<C-Down>', ':resize -2<CR>')
 vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>')
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>')
 
+utils.keymap("<leader>w", "<cmd>update!<cr>", "Save")
+utils.keymap("<leader>q", "<cmd>q<cr>", "Quit")
+
 -- toggle options
 vim.keymap.set("n", "<leader>tw", function()
   utils.toggle("wrap")
