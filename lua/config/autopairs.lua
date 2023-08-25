@@ -1,10 +1,9 @@
-local M = {}
-
-function M.setup()
-  local npairs = require "nvim-autopairs"
-  npairs.setup {
+local M = {
+  "windwp/nvim-autopairs",
+  event = "InsertEnter",
+  opts = {
     check_ts = true,
-  }
-end
+  },
+}
 
 return M

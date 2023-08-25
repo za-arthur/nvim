@@ -1,13 +1,26 @@
-local M = {}
+local utils = require("utils")
 
-function M.setup()
-  require("nvim-tree").setup {
+local M = {
+  "nvim-tree/nvim-tree.lua",
+  lazy = false,
+  opts = {
     disable_netrw = true,
     hijack_netrw = true,
-    open_on_setup = true,
-    open_on_setup_file = true,
-    view = {
-      number = true,
+    diagnostics = {
+      enable = true,
+      show_on_dirs = true,
+    },
+    modified = {
+      enable = true,
+    },
+    renderer = {
+      special_files = {
+        "go.mod",
+        "go.sum",
+        "Makefile",
+        "README.md",
+        "readme.md",
+      },
     },
     filters = {
       custom = {
@@ -17,7 +30,18 @@ function M.setup()
         "__pycache__",
       },
     },
+  },
+  init = function()
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+  end,
+  keys = {
+    utils.lazymap("<leader>ee", "<cmd>NvimTreeToggle<cr>", "NvimTree Toggle"),
+    utils.lazymap("<leader>ef", "<cmd>NvimTreeFindFileToggle<cr>", "NvimTree Current file"),
+  },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
   }
-end
+}
 
 return M

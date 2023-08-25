@@ -1,11 +1,13 @@
-local M = {}
-
-function M.setup()
-  require("mini.indentscope").setup {
+local M = {
+  "echasnovski/mini.indentscope",
+  event = "VeryLazy",
+  opts = {
     draw = {
-      animation = require('mini.indentscope').gen_animation.none()
+      animation = function()
+        return 0
+      end,
     },
-  }
-end
+  },
+}
 
 return M

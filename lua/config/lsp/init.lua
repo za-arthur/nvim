@@ -1,32 +1,44 @@
-local M = {}
+local utils = require("utils")
 
-local servers = {
-  gopls = {},
-  sumneko_lua = {},
-}
-
-local function on_attach(client, bufnr)
-  -- Enable completion triggered by <C-X><C-O>
-  -- See `:help omnifunc` and `:help ins-completion` for more information.
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-  -- Use LSP as the handler for formatexpr.
-  -- See `:help formatexpr` for more information.
-  vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
-
-  -- Configure key mappings
-  require("config.lsp.keymaps").setup(client, bufnr)
-end
-
-local opts = {
-  on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
+local M = {
+  "neovim/nvim-lspconfig",
+  event = "BufReadPre",
+  keys = {
+    utils.lazymap("[d", vim.diagnostic.goto_prev, "Previous diagnostic"),
+    utils.lazymap("]d", vim.diagnostic.goto_next, "Next diagnostic"),
+    utils.lazymap("<leader>K", vim.lsp.buf.hover, "Display hover information"),
+    utils.lazymap("<leader>k", vim.lsp.buf.signature_help, "Display signature information"),
+    utils.lazymap("<Leader>rn", vim.lsp.buf.rename, "Rename the symbol"),
+    utils.lazymap("<leader>ca", vim.lsp.buf.code_action, "Select a code action"),
   },
+  config = function()
+    require("config.lsp.mason").setup()
+    require("config.lsp.handlers").setup()
+  end,
+  dependencies = {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+  },
+  -- {
+  -- -- Setup package installation https://github.com/williamboman/mason.nvim/issues/130#issuecomment-1217773757
+  --   "mfussenegger/nvim-lint",
+  --   -- event = "BufReadPre",
+  --   config = function()
+  --     require('lint').linters_by_ft = {
+  --       c = { "clangtidy", },
+  --       cpp = { "clangtidy", },
+  --       go = { "golangcilint", },
+  --       python = { "pylint", },
+  --       yaml = { "yamllint", },
+  --     }
+  --
+  --     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  --       callback = function()
+  --         require("lint").try_lint()
+  --       end,
+  --     })
+  --   end,
+  -- },
 }
-
-function M.setup()
-  require("config.lsp.installer").setup(servers, opts)
-end
 
 return M

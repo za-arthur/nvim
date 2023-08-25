@@ -1,7 +1,7 @@
-local M = {}
-
-function M.setup()
-  require("lualine").setup {
+local M = {
+  "nvim-lualine/lualine.nvim",
+  event = "VeryLazy",
+  opts = {
     options = {
       icons_enabled = true,
       theme = "auto",
@@ -11,7 +11,13 @@ function M.setup()
     sections = {
       lualine_a = { "mode" },
       lualine_b = { "branch", "diff", "diagnostics" },
-      lualine_c = {},
+      lualine_c = {
+        {
+          "filename",
+          newfile_status = true,
+          path = 1,
+        },
+      },
       lualine_x = { "encoding", "fileformat", "filetype" },
       lualine_y = { "progress" },
       lualine_z = { "location" },
@@ -26,7 +32,8 @@ function M.setup()
     },
     tabline = {},
     extensions = {},
-  }
-end
+  },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+}
 
 return M
