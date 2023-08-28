@@ -8,18 +8,18 @@ local M = {
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
 
-      utils.keymap("]c",
+      utils.keymap("]g",
         function()
-          if vim.wo.diff then return ']c' end
+          if vim.wo.diff then return ']g' end
           vim.schedule(function() gs.next_hunk() end)
           return '<Ignore>'
         end,
         "Next diff hunk", nil, { buffer = bufnr, }
       )
 
-      utils.keymap("[c",
+      utils.keymap("[g",
         function()
-          if vim.wo.diff then return '[c' end
+          if vim.wo.diff then return '[g' end
           vim.schedule(function() gs.prev_hunk() end)
           return '<Ignore>'
         end,
@@ -30,8 +30,8 @@ local M = {
   keys = {
     utils.lazymap("<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk"),
     utils.lazymap("<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", "Reset hunk"),
-    utils.lazymap("<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer"),
     utils.lazymap("<leader>gu", "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo stage hunk"),
+    utils.lazymap("<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer"),
     utils.lazymap("<leader>gR", "<cmd>Gitsigns reset_buffer<cr>", "Reset buffer"),
     utils.lazymap("<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", "Preview hunk"),
     utils.lazymap("<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame"),

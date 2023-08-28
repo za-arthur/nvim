@@ -22,6 +22,7 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>')
 
 utils.keymap("<leader>w", "<cmd>update!<cr>", "Save")
 utils.keymap("<leader>q", "<cmd>q<cr>", "Quit")
+utils.keymap("<leader>Q", "<cmd>qall<cr>", "Quit all")
 
 -- toggle options
 vim.keymap.set("n", "<leader>tw", function()
