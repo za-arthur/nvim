@@ -25,7 +25,6 @@ local M = {
       },
       b = {
         name = "Buffer",
-        c = { "<Cmd>bd!<Cr>", "Close current buffer" },
       },
       f = {
         name = "Find",

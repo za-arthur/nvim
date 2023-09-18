@@ -14,6 +14,9 @@ vim.keymap.set('n', '<esc>', '<cmd>noh<cr>')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
+-- Manage buffers
+utils.keymap("<leader>bc", "<cmd>bd!<cr>", "Close current buffer")
+
 -- Resize with arrows.
 vim.keymap.set('n', '<C-Up>', ':resize +2<CR>')
 vim.keymap.set('n', '<C-Down>', ':resize -2<CR>')
@@ -21,6 +24,7 @@ vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>')
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>')
 
 utils.keymap("<leader>w", "<cmd>update!<cr>", "Save")
+utils.keymap("<leader>W", "<cmd>wall<cr>", "Save all")
 utils.keymap("<leader>q", "<cmd>q<cr>", "Quit")
 utils.keymap("<leader>Q", "<cmd>qall<cr>", "Quit all")
 

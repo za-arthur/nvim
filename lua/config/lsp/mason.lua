@@ -4,16 +4,17 @@ function M.setup()
   -- LSP servers
   local servers = {
     "bashls",
+    "clangd",
     "gopls",
     "marksman",
     "pylsp",
     "sqlls",
   }
 
-  require('mason').setup()
+  require("mason").setup()
 
   -- Configure mason-lspconfig
-  require('mason-lspconfig').setup({
+  require("mason-lspconfig").setup({
     ensure_installed = servers,
     automatic_installation = true,
   })
@@ -26,8 +27,8 @@ function M.setup()
   -- loop through the servers
   for _, server in pairs(servers) do
     opts = {
-      -- getting "on_attach_format" and capabilities from handlers
-      on_attach = require("config.lsp.handlers").on_attach_format,
+      -- getting "on_attach" and capabilities from handlers
+      on_attach = require("config.lsp.handlers").on_attach,
       capabilities = require("config.lsp.handlers").capabilities,
     }
 
@@ -39,30 +40,25 @@ function M.setup()
   end
 
   -- Separate configs
-  lspconfig.clangd.setup({
-    on_attach = require("config.lsp.handlers").on_attach,
-    capabilities = require("config.lsp.handlers").capabilities,
-  })
-
   lspconfig.lua_ls.setup({
-    on_attach = require("config.lsp.handlers").on_attach_format,
+    on_attach = require("config.lsp.handlers").on_attach,
     capabilities = require("config.lsp.handlers").capabilities,
     settings = {
       Lua = {
         runtime = {
-          version = 'LuaJIT',
+          version = "LuaJIT",
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
           globals = {
-            'vim',
-            'require'
+            "vim",
+            "require",
           },
           disable = {
             "missing-parameter",
             "redundant-parameter",
             "missing-fields",
-          }
+          },
         },
         workspace = {
           -- Make the server aware of Neovim runtime files
@@ -76,6 +72,17 @@ function M.setup()
       },
     },
   })
+
+  -- Formatters
+  local formatters = {
+    "gofumpt",
+    "goimports",
+    "golines",
+    "yamlfmt",
+  }
+  vim.api.nvim_create_user_command("MasonInstallAll", function()
+    vim.cmd("MasonInstall " .. table.concat(formatters, " "))
+  end, {})
 end
 
 return M

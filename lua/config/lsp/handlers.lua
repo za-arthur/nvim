@@ -2,24 +2,6 @@ local M = {}
 
 M.capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-function M.on_attach_format(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-  local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 5000 })
-      end,
-    })
-  end
-end
-
 function M.on_attach(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -56,9 +38,6 @@ function M.setup()
     underline = true,
     severity_sort = false,
   })
-
-  -- Add Format user command
-  vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({ timeout_ms = 5000 }) end, {})
 
   -- show diagnostics in hover window
   vim.api.nvim_create_autocmd("CursorHold", {
