@@ -4,7 +4,6 @@ function M.setup()
   -- LSP servers
   local servers = {
     "bashls",
-    "clangd",
     "gopls",
     "marksman",
     "pylsp",
@@ -27,8 +26,8 @@ function M.setup()
   -- loop through the servers
   for _, server in pairs(servers) do
     opts = {
-      -- getting "on_attach" and capabilities from handlers
-      on_attach = require("config.lsp.handlers").on_attach,
+      -- getting "on_attach_format" and capabilities from handlers
+      on_attach = require("config.lsp.handlers").on_attach_format,
       capabilities = require("config.lsp.handlers").capabilities,
     }
 
@@ -40,8 +39,13 @@ function M.setup()
   end
 
   -- Separate configs
-  lspconfig.lua_ls.setup({
+  lspconfig.clangd.setup({
     on_attach = require("config.lsp.handlers").on_attach,
+    capabilities = require("config.lsp.handlers").capabilities,
+  })
+
+  lspconfig.lua_ls.setup({
+    on_attach = require("config.lsp.handlers").on_attach_format,
     capabilities = require("config.lsp.handlers").capabilities,
     settings = {
       Lua = {

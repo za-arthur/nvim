@@ -2,7 +2,7 @@ local M = {}
 
 M.capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-function M.on_attach(client, bufnr)
+function M.on_attach_format(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -18,6 +18,11 @@ function M.on_attach(client, bufnr)
       end,
     })
   end
+end
+
+function M.on_attach(_, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 
 function M.setup()
