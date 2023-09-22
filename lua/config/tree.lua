@@ -24,7 +24,7 @@ local M = {
     },
     filters = {
       custom = {
-        "\\.git",
+        "^\\.git$",
         ".cache",
         "node_modules",
         "__pycache__",

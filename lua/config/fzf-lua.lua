@@ -5,6 +5,7 @@ local M = {
   event = "VeryLazy",
   keys = {
     utils.lazymap("<leader>ff", "<cmd>FzfLua files<cr>", "FzfLua Files"),
+    utils.lazymap("<leader>fF", "<cmd>FzfLua files fd_opts=--no-ignore<cr>", "FzfLua Files (--no-ignore)"),
     utils.lazymap("<leader>fb", "<cmd>FzfLua buffers<cr>", "FzfLua Buffers"),
     utils.lazymap("<leader>fg", "<cmd>FzfLua live_grep_glob<cr>", "FzfLua Live grep glob"),
     utils.lazymap("<leader>fc", "<cmd>FzfLua commands<cr>", "FzfLua Commands"),
