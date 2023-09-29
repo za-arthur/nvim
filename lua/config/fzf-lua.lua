@@ -14,6 +14,7 @@ local M = {
     utils.lazymap("gd", "<cmd>FzfLua lsp_definitions<CR>", "FzfLua Definitions"),
     utils.lazymap("gm", "<cmd>FzfLua lsp_implementations<CR>", "FzfLua Implementations"),
     utils.lazymap("gr", "<cmd>FzfLua lsp_references<CR>", "FzfLua References"),
+    utils.lazymap("gs", "<cmd>FzfLua lsp_document_symbols<CR>", "FzfLua Document Symbols"),
   },
   dependencies = { "nvim-tree/nvim-web-devicons" },
 }
