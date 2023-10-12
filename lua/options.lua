@@ -25,3 +25,8 @@ vim.cmd [[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]]
+
+-- Autoreload on change
+vim.api.nvim_create_autocmd(
+  { "FocusGained", "TermClose", "TermLeave" },
+  { command = "checktime" })

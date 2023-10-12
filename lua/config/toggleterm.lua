@@ -13,14 +13,14 @@ local M = {
 
     utils.keymap("<leader>gt", function()
         local Terminal = require("toggleterm.terminal").Terminal
-        local lazygit = Terminal:new({
-          cmd = "lazygit",
-          direction = "float",
+        local gitui = Terminal:new({
+          cmd = "gitui",
+          direction = "tab",
           hidden = true,
         })
-        lazygit:toggle()
+        gitui:toggle()
       end,
-      "Show lazygit")
+      "Show gitui")
   end
 }
 
