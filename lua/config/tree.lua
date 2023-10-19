@@ -37,7 +37,7 @@ local M = {
   end,
   keys = {
     utils.lazymap("<leader>ee", "<cmd>NvimTreeToggle<cr>", "NvimTree Toggle"),
-    utils.lazymap("<leader>ef", "<cmd>NvimTreeFindFileToggle<cr>", "NvimTree Current file"),
+    utils.lazymap("<leader>ef", "<cmd>NvimTreeFindFile<cr>", "NvimTree Current file"),
   },
   dependencies = {
     "nvim-tree/nvim-web-devicons",

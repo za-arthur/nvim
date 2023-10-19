@@ -1,8 +1,8 @@
 local M = {
-  "echasnovski/mini.cursorword",
+  "RRethy/vim-illuminate",
   event = "VeryLazy",
   config = function(_, opts)
-    require('mini.cursorword').setup(opts)
+    require('illuminate').configure(opts)
   end,
 }
 
