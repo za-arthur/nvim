@@ -34,9 +34,9 @@ local M = {
     utils.lazymap("<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer"),
     utils.lazymap("<leader>gR", "<cmd>Gitsigns reset_buffer<cr>", "Reset buffer"),
     utils.lazymap("<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", "Preview hunk"),
-    utils.lazymap("<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame"),
+    utils.lazymap("<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>", "Gitsigns Toggle line blame"),
     utils.lazymap("<leader>gd", "<cmd>Gitsigns diffthis<cr>", "Show diff"),
-    utils.lazymap("<leader>td", "<cmd>Gitsigns toggle_deleted<cr>", "Toggle deleted lines"),
+    utils.lazymap("<leader>td", "<cmd>Gitsigns toggle_deleted<cr>", "Gitsigns Toggle deleted lines"),
   },
 }
 

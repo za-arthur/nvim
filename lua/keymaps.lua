@@ -37,4 +37,4 @@ vim.keymap.set("n", "<leader>ts", function()
   utils.toggle("spell")
 end, { desc = "Toggle Spelling" })
 
-vim.keymap.set("n", "<leader>td", utils.toggle_diagnostics, { desc = "Toggle Diagnostics" })
+vim.keymap.set("n", "<leader>tD", utils.toggle_diagnostics, { desc = "Toggle Diagnostics" })
