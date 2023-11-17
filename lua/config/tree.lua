@@ -6,6 +6,9 @@ local M = {
   opts = {
     disable_netrw = true,
     hijack_netrw = true,
+    view = {
+      preserve_window_proportions = true,
+    },
     diagnostics = {
       enable = true,
       show_on_dirs = true,
