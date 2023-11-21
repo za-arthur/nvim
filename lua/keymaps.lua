@@ -38,3 +38,5 @@ vim.keymap.set("n", "<leader>ts", function()
 end, { desc = "Toggle Spelling" })
 
 vim.keymap.set("n", "<leader>tD", utils.toggle_diagnostics, { desc = "Toggle Diagnostics" })
+
+vim.keymap.set("n", "<leader>ti", "<cmd>IlluminateToggleBuf<cr>", { desc = "Toggle Illuminate" })
