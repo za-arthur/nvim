@@ -19,6 +19,7 @@ local M = {
       "json",
       "lua",
       "make",
+      "rust",
       "sql",
       "yaml",
     },

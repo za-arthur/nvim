@@ -9,6 +9,7 @@ function M.setup()
     "marksman",
     "pylsp",
     "sqlls",
+    "rust_analyzer",
   }
 
   require("mason").setup()
