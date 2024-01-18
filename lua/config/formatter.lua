@@ -18,6 +18,9 @@ local M = {
         sql = {
           require("formatter.filetypes.sql").pgformat,
         },
+        python = {
+          require("formatter.filetypes.python").black,
+        },
         ["*"] = {
           function()
             -- Ignore already configured types.

@@ -78,6 +78,7 @@ function M.setup()
     "goimports",
     "golines",
     "yamlfmt",
+    "black",
   }
   vim.api.nvim_create_user_command("MasonInstallAll", function()
     vim.cmd("MasonInstall " .. table.concat(formatters, " "))
