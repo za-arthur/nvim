@@ -3,12 +3,10 @@ local M = {}
 function M.setup()
   -- LSP servers
   local servers = {
-    "bashls",
     "clangd",
     "gopls",
     "marksman",
-    "pylsp",
-    "sqlls",
+    "pyright",
     "rust_analyzer",
   }
 
