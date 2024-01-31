@@ -7,6 +7,9 @@ local M = {
       enable = true,
       disable = require("utils").is_large,
     },
+    indent = {
+      enable = true,
+    },
     ensure_installed = {
       "c",
       "cpp",
