@@ -2,7 +2,7 @@ local utils = require("utils")
 
 local M = {
   'linrongbin16/gitlinker.nvim',
-  event = "VeryLazy",
+  event = "BufReadPre",
   keys = {
     utils.lazymap("<leader>gl", "<cmd>GitLink!blame<cr>", "GitLink Blame"),
   },
