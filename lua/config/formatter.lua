@@ -15,6 +15,9 @@ local M = {
           require("formatter.filetypes.go").goimports,
           require("formatter.filetypes.go").golines,
         },
+        rust = {
+          require("formatter.filetypes.rust").rustfmt,
+        },
         sql = {
           require("formatter.filetypes.sql").pgformat,
         },
