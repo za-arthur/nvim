@@ -4,7 +4,7 @@ M.capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.m
 
 function M.on_attach(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 end
 
 function M.setup()
@@ -26,7 +26,7 @@ function M.setup()
     float = {
       focusable = false,
       style = "minimal",
-      source = "always",
+      source = true,
       header = "",
       prefix = "",
     },
