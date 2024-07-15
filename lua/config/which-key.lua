@@ -1,44 +1,23 @@
 local M = {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  opts = {
-    window = {
-      border = "single",   -- none, single, double, shadow
-      position = "bottom", -- bottom, top
-    },
-  },
+  opts = {},
   config = function()
     local whichkey = require("which-key")
 
-    local opts = {
-      mode = "n",     -- Normal mode
-      prefix = "<leader>",
-      buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true,  -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = false, -- use `nowait` when creating keymaps
-    }
-
-    local mappings = {
-      e = {
-        name = "Tree",
-      },
-      b = {
-        name = "Buffer",
-      },
-      f = {
-        name = "Find",
-      },
-      g = {
-        name = "Git",
-      },
-      t = {
-        name = "Toggle",
-      },
-    }
-
-    whichkey.register(mappings, opts)
+    whichkey.add({
+      { "<leader>e", group = "Tree",        nowait = false, remap = false },
+      { "<leader>b", group = "Buffer",      nowait = false, remap = false },
+      { "<leader>f", group = "Find",        nowait = false, remap = false },
+      { "<leader>g", group = "Git",         nowait = false, remap = false },
+      { "<leader>c", group = "Code action", nowait = false, remap = false },
+      { "<leader>r", group = "Rename",      nowait = false, remap = false },
+      { "<leader>t", group = "Toggle",      nowait = false, remap = false },
+    })
   end,
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
 }
 
 return M

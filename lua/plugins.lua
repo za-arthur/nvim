@@ -18,4 +18,8 @@ require("lazy").setup("config", {
   ui = {
     border = "single",
   },
+  rocks = {
+    hererocks = false,
+    enabled = false,
+  },
 })
