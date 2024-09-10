@@ -9,10 +9,10 @@ local M = {
     view = {
       preserve_window_proportions = true,
     },
-    diagnostics = {
-      enable = true,
-      show_on_dirs = true,
-    },
+    -- diagnostics = {
+    --   enable = true,
+    --   show_on_dirs = true,
+    -- },
     modified = {
       enable = true,
     },
