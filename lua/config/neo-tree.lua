@@ -10,6 +10,9 @@ local M = {
         hide_by_name = {
           "node_modules",
         },
+        always_show = {
+          ".github",
+        },
         never_show = {
           ".git",
           ".DS_Store",

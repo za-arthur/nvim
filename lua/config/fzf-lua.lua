@@ -3,6 +3,18 @@ local utils = require("utils")
 local M = {
   "ibhagwan/fzf-lua",
   event = "VeryLazy",
+  config = function(_, opts)
+    local actions = require("fzf-lua.actions")
+    require("fzf-lua").setup({
+      grep = {
+        rg_opts =
+        "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -g '!{.git,node_modules}' -e",
+        actions = {
+          ["ctrl-h"] = { actions.toggle_hidden },
+        },
+      },
+    })
+  end,
   keys = {
     utils.lazymap("<leader>ff", "<cmd>FzfLua files<cr>", "FzfLua Files"),
     utils.lazymap("<leader>fF", "<cmd>FzfLua files fd_opts=--no-ignore<cr>", "FzfLua Files (--no-ignore)"),
