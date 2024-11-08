@@ -13,6 +13,11 @@ local M = {
           ["ctrl-h"] = { actions.toggle_hidden },
         },
       },
+      keymap = {
+        fzf = {
+          ["ctrl-q"] = "select-all+accept",
+        },
+      },
     })
   end,
   keys = {
