@@ -8,6 +8,7 @@ local M = {
     whichkey.add({
       { "<leader>e", group = "Tree",        nowait = false, remap = false },
       { "<leader>b", group = "Buffer",      nowait = false, remap = false },
+      { "<leader>s", group = "Session",     nowait = false, remap = false },
       { "<leader>f", group = "Find",        nowait = false, remap = false },
       { "<leader>g", group = "Git",         nowait = false, remap = false },
       { "<leader>c", group = "Code action", nowait = false, remap = false },
