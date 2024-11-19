@@ -22,6 +22,8 @@ local M = {
       "json",
       "lua",
       "make",
+      "markdown",
+      "markdown_inline",
       "rust",
       "sql",
       "yaml",
@@ -43,6 +45,11 @@ local M = {
   },
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
+    vim.filetype.add({
+      extension = {
+        mdx = "markdown",
+      }
+    })
   end,
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
