@@ -17,10 +17,6 @@ vim.keymap.set('v', '>', '>gv')
 -- Manage buffers
 utils.keymap("<leader>bc", "<cmd>bd!<cr>", "Close current buffer")
 
--- Manage sessions
-utils.keymap("<leader>sw", "<cmd>mksession! Session.vim<cr>", "Save current session")
-utils.keymap("<leader>ss", "<cmd>source Session.vim<cr>", "Open a session")
-
 -- Resize with arrows.
 vim.keymap.set('n', '<C-Up>', ':resize +2<CR>')
 vim.keymap.set('n', '<C-Down>', ':resize -2<CR>')
