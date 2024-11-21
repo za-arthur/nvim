@@ -3,7 +3,6 @@ local M = {
   lazy = false,
   opts = {
     autoread = true,
-    directory =  "~/.vim/sessions",
     file = "Session.vim",
   }
 }
