@@ -16,6 +16,9 @@ vim.keymap.set('v', '>', '>gv')
 
 -- Manage buffers
 utils.keymap("<leader>bc", "<cmd>bd!<cr>", "Close current buffer")
+utils.keymap("<leader>bC", function()
+  utils.close_other_buffers()
+end, "Close other buffers")
 
 -- Resize with arrows.
 vim.keymap.set('n', '<C-Up>', ':resize +2<CR>')

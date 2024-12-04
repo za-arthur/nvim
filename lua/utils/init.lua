@@ -83,4 +83,26 @@ function M.keymap(lhs, rhs, desc, mode, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
+-- Function to close all buffers except visible ones and unsaved ones
+function M.close_other_buffers()
+  local current_tabpage = vim.api.nvim_get_current_tabpage()
+  local visible_buffers = {}
+
+  -- Get all windows in the current tab
+  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(current_tabpage)) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    visible_buffers[buf] = true
+  end
+
+  -- Iterate through all buffers
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    local modified = vim.bo[buf].modified
+
+    -- Skip visible buffers and unsaved (modified) buffers
+    if not visible_buffers[buf] and not modified then
+      vim.cmd('bwipeout ' .. buf)
+    end
+  end
+end
+
 return M
