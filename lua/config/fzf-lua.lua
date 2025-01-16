@@ -6,6 +6,9 @@ local M = {
   config = function(_, opts)
     local actions = require("fzf-lua.actions")
     require("fzf-lua").setup({
+      defaults = {
+        copen = "belowright copen",
+      },
       grep = {
         rg_opts =
         "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -g '!{.git,node_modules}' -e",
