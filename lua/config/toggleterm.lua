@@ -4,6 +4,7 @@ local M = {
   opts = {
     open_mapping = [[<c-\>]],
     insert_mappings = true,
+    shell = "/opt/homebrew/bin/fish",
     start_in_insert = true,
     direction = "float",
   },
