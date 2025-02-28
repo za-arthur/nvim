@@ -21,6 +21,9 @@ local M = {
           ["ctrl-q"] = "select-all+accept",
         },
       },
+      lsp = {
+        jump1 = false,
+      },
     })
   end,
   keys = {
