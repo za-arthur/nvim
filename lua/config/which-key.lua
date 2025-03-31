@@ -10,6 +10,7 @@ local M = {
       { "<leader>b", group = "Buffer",      nowait = false, remap = false },
       { "<leader>f", group = "Find",        nowait = false, remap = false },
       { "<leader>g", group = "Git",         nowait = false, remap = false },
+      { "<leader>l", group = "LSP",         nowait = false, remap = false },
       { "<leader>d", group = "Debug",       nowait = false, remap = false },
       { "<leader>c", group = "Code action", nowait = false, remap = false },
       { "<leader>r", group = "Rename",      nowait = false, remap = false },
