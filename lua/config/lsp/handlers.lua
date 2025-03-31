@@ -8,18 +8,6 @@ function M.on_attach(_, bufnr)
 end
 
 function M.setup()
-  -- Sign configuration
-  local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
-  }
-
-  for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-  end
-
   -- Diagnostic configuration
   vim.diagnostic.config({
     virtual_text = false,
@@ -32,10 +20,16 @@ function M.setup()
     },
     -- show signs
     signs = {
-      active = signs,
+      -- active = signs,
+      text = {
+        [vim.diagnostic.severity.ERROR] = "",
+        [vim.diagnostic.severity.WARN]  = "",
+        [vim.diagnostic.severity.HINT]  = "",
+        [vim.diagnostic.severity.INFO]  = "",
+      }
     },
     update_in_insert = false,
-    underline = true,
+    severity = { min = vim.diagnostic.severity.WARN },
     severity_sort = false,
   })
 
