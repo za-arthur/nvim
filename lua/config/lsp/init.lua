@@ -8,8 +8,6 @@ local M = {
     utils.lazymap("]d", vim.diagnostic.goto_next, "Next diagnostic"),
     utils.lazymap("<leader>K", vim.lsp.buf.hover, "Display hover information"),
     utils.lazymap("<leader>k", vim.lsp.buf.signature_help, "Display signature information"),
-    utils.lazymap("<Leader>rn", vim.lsp.buf.rename, "Rename the symbol"),
-    utils.lazymap("<leader>ca", vim.lsp.buf.code_action, "Select a code action"),
   },
   config = function()
     require("config.lsp.mason").setup()
