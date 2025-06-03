@@ -1,42 +1,55 @@
 local utils = require("utils")
 
 local M = {
-  "neovim/nvim-lspconfig",
-  event = "BufReadPre",
+  "mason-org/mason-lspconfig.nvim",
+  lazy = false,
   keys = {
     utils.lazymap("[d", vim.diagnostic.goto_prev, "Previous diagnostic"),
     utils.lazymap("]d", vim.diagnostic.goto_next, "Next diagnostic"),
     utils.lazymap("<leader>K", vim.lsp.buf.hover, "Display hover information"),
     utils.lazymap("<leader>k", vim.lsp.buf.signature_help, "Display signature information"),
   },
+  opts = {
+    ensure_installed = {
+      "gopls",
+      "marksman",
+      "pyright",
+      "rust_analyzer",
+    },
+    automatic_installation = true,
+  },
   config = function()
-    require("config.lsp.mason").setup()
     require("config.lsp.handlers").setup()
+
+    -- Custom config for clangd
+    vim.lsp.config("clangd", {
+      settings = {
+        cmd = { "clangd", "--log=error" },
+      },
+    })
+    vim.lsp.enable("clangd")
+
+    -- Configure all LSPs
+    require("mason").setup()
+    require("mason-lspconfig").setup()
+
+    -- Formatters
+    local formatters = {
+      "gofumpt",
+      "goimports",
+      "golines",
+      "yamlfmt",
+      "black",
+    }
+    vim.api.nvim_create_user_command("MasonInstallAll", function()
+      vim.cmd("MasonInstall " .. table.concat(formatters, " "))
+    end, {})
   end,
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason.nvim",
+    -- "mason-org/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
   },
-  -- {
-  -- -- Setup package installation https://github.com/williamboman/mason.nvim/issues/130#issuecomment-1217773757
-  --   "mfussenegger/nvim-lint",
-  --   -- event = "BufReadPre",
-  --   config = function()
-  --     require('lint').linters_by_ft = {
-  --       c = { "clangtidy", },
-  --       cpp = { "clangtidy", },
-  --       go = { "golangcilint", },
-  --       python = { "pylint", },
-  --       yaml = { "yamllint", },
-  --     }
-  --
-  --     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  --       callback = function()
-  --         require("lint").try_lint()
-  --       end,
-  --     })
-  --   end,
-  -- },
 }
 
 return M
