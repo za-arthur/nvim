@@ -30,7 +30,7 @@ local M = {
     utils.lazymap("<leader>ff", "<cmd>FzfLua files<cr>", "FzfLua Files"),
     utils.lazymap("<leader>fF", "<cmd>FzfLua files fd_opts=--no-ignore<cr>", "FzfLua Files (--no-ignore)"),
     utils.lazymap("<leader>fb", "<cmd>FzfLua buffers<cr>", "FzfLua Buffers"),
-    utils.lazymap("<leader>fg", "<cmd>FzfLua live_grep_glob<cr>", "FzfLua Live grep glob"),
+    utils.lazymap("<leader>fg", "<cmd>FzfLua live_grep<cr>", "FzfLua Live grep glob"),
     utils.lazymap("<leader>fw", "<cmd>FzfLua grep_cword<cr>", "FzfLua Word"),
     utils.lazymap("<leader>fc", "<cmd>FzfLua commands<cr>", "FzfLua Commands"),
     utils.lazymap("<leader>fr", "<cmd>FzfLua resume<cr>", "FzfLua Resume"),
