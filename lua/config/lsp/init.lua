@@ -24,7 +24,7 @@ local M = {
     -- Custom config for clangd
     vim.lsp.config("clangd", {
       settings = {
-        cmd = { "clangd", "--log=error" },
+        cmd = { "clangd", "--log=error", "--clang-tidy" },
       },
     })
     vim.lsp.enable("clangd")
