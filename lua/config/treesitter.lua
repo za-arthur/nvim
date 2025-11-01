@@ -1,5 +1,6 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
+  version = "*",
   event = "BufReadPost",
   build = ":TSUpdate",
   opts = {

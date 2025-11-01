@@ -2,6 +2,7 @@ local utils = require("utils")
 
 local M = {
   "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
   lazy = false,
   opts = {
     popup_border_style = "rounded",
