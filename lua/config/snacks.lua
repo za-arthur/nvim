@@ -30,6 +30,7 @@ local M = {
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>fc", function() Snacks.picker.commands() end, desc = "Commands" },
     { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+    { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Grep Word" },
     { "<leader>f/", function() Snacks.picker.lines() end, desc = "Search lines" },
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
     { "<leader>fr", function() Snacks.picker.resume() end, desc = "Resume" },

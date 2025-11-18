@@ -2,7 +2,6 @@ local utils = require("utils")
 
 local M = {
   "lewis6991/gitsigns.nvim",
-  enabled = false,
   event = "BufReadPre",
   opts = {
     current_line_blame = true,
@@ -34,7 +33,6 @@ local M = {
     utils.lazymap("<leader>gu", "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo stage hunk"),
     utils.lazymap("<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer"),
     utils.lazymap("<leader>gR", "<cmd>Gitsigns reset_buffer<cr>", "Reset buffer"),
-    utils.lazymap("<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", "Preview hunk"),
     utils.lazymap("<leader>gb", "<cmd>Gitsigns blame<cr>", "Show blame"),
     utils.lazymap("<leader>gd", "<cmd>Gitsigns toggle_deleted<cr>", "Toggle deleted lines"),
   },
