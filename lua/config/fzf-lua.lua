@@ -2,6 +2,7 @@ local utils = require("utils")
 
 local M = {
   "ibhagwan/fzf-lua",
+  enabled = false,
   event = "VeryLazy",
   config = function(_, opts)
     local actions = require("fzf-lua.actions")
