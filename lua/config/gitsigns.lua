@@ -28,13 +28,7 @@ local M = {
     end
   },
   keys = {
-    utils.lazymap("<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk"),
-    utils.lazymap("<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", "Reset hunk"),
-    utils.lazymap("<leader>gu", "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo stage hunk"),
-    utils.lazymap("<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer"),
-    utils.lazymap("<leader>gR", "<cmd>Gitsigns reset_buffer<cr>", "Reset buffer"),
     utils.lazymap("<leader>gb", "<cmd>Gitsigns blame<cr>", "Show blame"),
-    utils.lazymap("<leader>gd", "<cmd>Gitsigns toggle_deleted<cr>", "Toggle deleted lines"),
   },
 }
 
