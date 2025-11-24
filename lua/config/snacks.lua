@@ -23,9 +23,16 @@ local M = {
     notifier = { },
     gh = { },
     gitbrowse = { },
+    terminal = { },
+    lazygit = {
+      win = {
+        width = 0,  -- full width
+        height = 0, -- full height
+      },
+    },
   },
   keys = {
-    -- Exploer
+    -- Explorer
     { "<leader>ep", function() Snacks.explorer() end, desc = "Explorer popup" },
     { "<leader>ef", function() Snacks.explorer.reveal() end, desc = "Explorer reveal current buffer" },
 
@@ -34,6 +41,7 @@ local M = {
     { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub pull requests (open)" },
     { "<leader>gl", function() Snacks.gitbrowse() end, desc = "Git Browse" },
     { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git diff (hunks)" },
+    { "<leader>gt", function() Snacks.lazygit() end, desc = "Show lazygit" },
 
     -- Find
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
@@ -56,6 +64,9 @@ local M = {
     { "<leader>rao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "C[a]lls outgoing" },
     { "<leader>rs", function() Snacks.picker.lsp_symbols() end, desc = "LSP symbols" },
     { "<leader>rS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP workspace symbols" },
+
+    -- Terminal
+    { "<c-/>", function() Snacks.terminal() end, desc = "Toggle terminal" },
   },
 }
 
