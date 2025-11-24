@@ -14,7 +14,8 @@ local M = {
         },
         explorer = {
           layout = { preset = "vertical", layout = { max_width = 120, min_width = 40 } },
-        }
+          auto_close = true,
+        },
       },
     },
     explorer = { },
