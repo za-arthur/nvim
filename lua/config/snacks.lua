@@ -12,6 +12,9 @@ local M = {
         lsp_declarations = {
           auto_confirm = false,
         },
+        lsp_references = {
+          auto_confirm = false,
+        },
         explorer = {
           layout = { preset = "vertical", layout = { max_width = 120, min_width = 40 } },
           auto_close = true,
