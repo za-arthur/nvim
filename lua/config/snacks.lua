@@ -7,12 +7,15 @@ local M = {
     picker = {
       sources = {
         lsp_definitions = {
+          include_current = true,
           auto_confirm = false,
         },
         lsp_declarations = {
+          include_current = true,
           auto_confirm = false,
         },
         lsp_references = {
+          include_current = true,
           auto_confirm = false,
         },
         explorer = {
