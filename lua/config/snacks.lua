@@ -28,7 +28,6 @@ local M = {
     bigfile = { },
     input = { },
     notifier = { },
-    gh = { },
     gitbrowse = { },
     terminal = { },
     lazygit = {
@@ -44,8 +43,6 @@ local M = {
     { "<leader>ef", function() Snacks.explorer.reveal() end, desc = "Explorer reveal current buffer" },
 
     -- Git
-    { "<leader>gi", function() Snacks.picker.gh_issue() end, desc = "GitHub issues (open)" },
-    { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub pull requests (open)" },
     { "<leader>gl", function() Snacks.gitbrowse() end, desc = "Git Browse" },
     { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git diff (hunks)" },
     { "<leader>gt", function() Snacks.lazygit() end, desc = "Show lazygit" },
