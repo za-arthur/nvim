@@ -27,9 +27,6 @@ local M = {
       )
     end
   },
-  keys = {
-    utils.lazymap("<leader>gb", "<cmd>Gitsigns blame<cr>", "Show blame"),
-  },
 }
 
 return M
