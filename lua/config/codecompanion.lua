@@ -10,7 +10,7 @@ local M = {
       chat = {
         adapter = {
           name = "copilot",
-          model = "gpt-5.3-codex",
+          model = "claude-sonnet-4.6",
         },
       },
       inline = {
