@@ -3,6 +3,7 @@ local M = {
   cmd = {
     "Git",
     "Gdiffsplit",
+    "Gclog",
     "Gread",
     "Gwrite",
     "Gedit",
@@ -10,6 +11,7 @@ local M = {
   },
   keys = {
     { "<leader>gg", "<cmd>tabnew | Git | only<cr>", desc = "Git fugitive" },
+    { "<leader>gl", "<cmd>tabnew | Gclog -1000<cr>", desc = "Git log" },
   },
 }
 

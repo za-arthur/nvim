@@ -58,7 +58,7 @@ local M = {
     { "<leader>ef", function() Snacks.explorer.reveal() end, desc = "Explorer reveal current buffer" },
 
     -- Git
-    { "<leader>gl", function() Snacks.gitbrowse() end, desc = "Git browse" },
+    { "<leader>gb", function() Snacks.gitbrowse() end, desc = "Git browse" },
     { "<leader>gt", function() Snacks.lazygit() end, desc = "Show lazygit" },
 
     -- Find
