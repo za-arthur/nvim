@@ -3,6 +3,9 @@ local M = {
   cmd = {
     "Git",
     "Gdiffsplit",
+    "Gread",
+    "Gwrite",
+    "Gedit",
     "Ggrep",
   },
   keys = {

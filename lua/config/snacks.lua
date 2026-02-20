@@ -59,7 +59,6 @@ local M = {
 
     -- Git
     { "<leader>gl", function() Snacks.gitbrowse() end, desc = "Git browse" },
-    { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git diff (hunks)" },
     { "<leader>gt", function() Snacks.lazygit() end, desc = "Show lazygit" },
 
     -- Find
