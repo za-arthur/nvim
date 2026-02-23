@@ -3,6 +3,7 @@ local utils = require("utils")
 local M = {
   "rcarriga/nvim-dap-ui",
   event = "VeryLazy",
+  enabled = false,
   dependencies = {
     "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"
   },
