@@ -9,7 +9,7 @@ local M = {
       chat = {
         adapter = {
           name = "copilot",
-          model = "claude-sonnet-4.6",
+          model = "gemini-3.1-pro-preview",
         },
       },
       inline = {
