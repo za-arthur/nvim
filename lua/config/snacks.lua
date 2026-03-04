@@ -82,6 +82,7 @@ local M = {
     { "<leader>rao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "C[a]lls outgoing" },
     { "<leader>rs", function() Snacks.picker.lsp_symbols() end, desc = "LSP symbols" },
     { "<leader>rS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP workspace symbols" },
+    { "<leader>rc", vim.lsp.buf.code_action, desc = "Select a code action" },
 
     -- Terminal
     { "<c-/>", function() Snacks.terminal() end, desc = "Toggle terminal" },
