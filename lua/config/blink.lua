@@ -17,6 +17,11 @@ local M = {
     cmdline = {
       keymap = {
         ['<Tab>'] = { 'show', 'accept' },
+        ["C-K"] = { "snippet_forward", "fallback" },
+        ["C-J"] = { "snippet_backward", "fallback" },
+        ["<CR>"] = { "select_and_accept", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
+        ["<C-j>"] = { "select_next", "fallback" },
       },
       completion = {
         menu = {
@@ -30,9 +35,7 @@ local M = {
       ["C-K"] = { "snippet_forward", "fallback" },
       ["C-J"] = { "snippet_backward", "fallback" },
       ["<CR>"] = { "select_and_accept", "fallback" },
-
       ["<C-k>"] = { "select_prev", "fallback" },
-
       ["<C-j>"] = { "select_next", "fallback" },
     },
   },
