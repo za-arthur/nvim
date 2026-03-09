@@ -1,6 +1,6 @@
 local M = {}
 
-M.capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+M.capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 function M.on_attach(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
