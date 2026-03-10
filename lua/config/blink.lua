@@ -13,10 +13,16 @@ local M = {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
+      per_filetype = {
+        sql = { "snippets", "dadbod", "buffer" },
+      },
+      providers = {
+        dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+      },
     },
     cmdline = {
       keymap = {
-        ['<Tab>'] = { 'show', 'accept' },
+        ["<Tab>"] = { "show", "accept" },
         ["C-K"] = { "snippet_forward", "fallback" },
         ["C-J"] = { "snippet_backward", "fallback" },
         ["<CR>"] = { "select_and_accept", "fallback" },
