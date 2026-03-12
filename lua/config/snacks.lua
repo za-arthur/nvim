@@ -85,7 +85,18 @@ local M = {
     { "<leader>rc", vim.lsp.buf.code_action, desc = "Select a code action" },
 
     -- Terminal
-    { "<c-/>", function() Snacks.terminal() end, desc = "Toggle terminal" },
+    {
+      "<c-/>",
+      function()
+        Snacks.terminal(nil, {
+          win = {
+            position = "bottom",
+            relative = "win",
+          },
+        })
+      end,
+      desc = "Toggle terminal (local split)",
+    },
   },
 }
 
