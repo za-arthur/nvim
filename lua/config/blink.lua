@@ -8,7 +8,7 @@ local M = {
   opts = {
     fuzzy = {
       prebuilt_binaries = {
-        force_version = "v1.9.1",
+        force_version = "v1.10.1",
       },
     },
     sources = {
