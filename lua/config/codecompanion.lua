@@ -25,6 +25,13 @@ local M = {
         adapter = "copilot",
       },
     },
+    display = {
+      chat = {
+        window = {
+          width = 0.3,
+        },
+      },
+    },
   },
   keys = {
     { "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", desc = "CodeCompanion toggle", mode = { "n", "v" } },
