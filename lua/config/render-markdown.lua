@@ -3,6 +3,9 @@ local M = {
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
+  opts = {
+    latex = { enabled = false },
+  },
   ft = {
     "markdown",
     "codecompanion",

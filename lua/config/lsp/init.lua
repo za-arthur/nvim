@@ -11,10 +11,8 @@ local M = {
   },
   opts = {
     ensure_installed = {
-      "gopls",
       "marksman",
       "pyright",
-      "rust_analyzer",
     },
     automatic_installation = true,
   },
@@ -35,11 +33,9 @@ local M = {
 
     -- Formatters
     local formatters = {
-      "gofumpt",
-      "goimports",
-      "golines",
       "yamlfmt",
       "black",
+      "tree-sitter-cli",
     }
     vim.api.nvim_create_user_command("MasonInstallAll", function()
       vim.cmd("MasonInstall " .. table.concat(formatters, " "))
