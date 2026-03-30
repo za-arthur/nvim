@@ -17,6 +17,9 @@ opt.signcolumn = "yes"        -- Always show sign column
 opt.clipboard = "unnamedplus" -- Access system clipboard
 opt.timeoutlen = 500
 opt.colorcolumn = "80,120"    -- Ruler
+opt.foldlevelstart = 99       -- Open all folds on startup
+
+vim.g.db_ui_use_nerd_fonts = 1
 
 -- Highlight on yank
 vim.cmd [[
