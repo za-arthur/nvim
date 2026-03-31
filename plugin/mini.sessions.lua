@@ -2,6 +2,7 @@ vim.pack.add({ "https://github.com/echasnovski/mini.sessions" })
 
 require("mini.sessions").setup({
   autoread = true,
+  directory = "",
   file = "session.vim",
 })
 
