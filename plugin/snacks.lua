@@ -76,6 +76,7 @@ utils.keymap("<leader>ff", function() Snacks.picker.files() end, "Find files")
 utils.keymap("<leader>fr", function() Snacks.picker.resume() end, "Resume")
 utils.keymap("<leader>fh", function() Snacks.picker.help() end, "Help")
 utils.keymap("<leader>fk", function() Snacks.picker.keymaps() end, "Keymaps")
+utils.keymap("<leader>fu", function() Snacks.picker.undo() end, "Undo history")
 utils.keymap("<leader>fp", function() Snacks.picker() end, "Pickers")
 
 -- LSP
