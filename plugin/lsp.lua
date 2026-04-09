@@ -16,6 +16,7 @@ vim.diagnostic.config({
     source = true,
     header = "",
     prefix = "",
+    severity = { min = vim.diagnostic.severity.WARN },
   },
   signs = {
     text = {
@@ -23,26 +24,13 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.WARN]  = "",
       [vim.diagnostic.severity.HINT]  = "",
       [vim.diagnostic.severity.INFO]  = "",
-    }
+    },
+    severity = { min = vim.diagnostic.severity.WARN },
   },
   update_in_insert = false,
-  severity = { min = vim.diagnostic.severity.WARN },
   severity_sort = false,
 })
 
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    local opts = {
-      focusable = false,
-      close_events = { "BufLeave", "CursorMoved", "InsertEnter" },
-      border = "rounded",
-      source = "always",
-      prefix = " ",
-      scope = "cursor",
-    }
-    vim.diagnostic.open_float(nil, opts)
-  end,
-})
 
 -- 3. LspAttach Autocommand (Keymaps & Buffer Settings)
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -58,6 +46,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
       { buffer = ev.buf, silent = true, noremap = true, desc = "Display hover information" })
     vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.signature_help({ border = "rounded" }) end,
       { buffer = ev.buf, silent = true, noremap = true, desc = "Display signature information" })
+
+    if not vim.b[ev.buf].lsp_cursorhold_float then
+      vim.b[ev.buf].lsp_cursorhold_float = true
+      vim.api.nvim_create_autocmd("CursorHold", {
+        buffer = ev.buf,
+        callback = function()
+          vim.diagnostic.open_float(nil, {
+            focusable = false,
+            close_events = { "BufLeave", "CursorMoved", "InsertEnter" },
+            border = "rounded",
+            source = "always",
+            prefix = " ",
+            scope = "cursor",
+            severity = { min = vim.diagnostic.severity.WARN },
+          })
+        end,
+      })
+    end
   end,
 })
 
@@ -77,9 +83,7 @@ vim.lsp.enable("pyright")
 
 vim.lsp.config("clangd", {
   capabilities = capabilities,
-  settings = {
-    cmd = { "clangd", "--log=error", "--clang-tidy", "--header-insertion=never" },
-  },
+  cmd = { "clangd", "--log=error", "--clang-tidy", "--header-insertion=never" },
 })
 vim.lsp.enable("clangd")
 
