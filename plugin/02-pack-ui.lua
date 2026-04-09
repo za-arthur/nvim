@@ -161,7 +161,7 @@ local function build_content()
     -- Compute max name width for alignment
     local max_name = 0
     for _, p in ipairs(plugins) do
-        max_name = math.max(max_name, #p.spec.name)
+        max_name = math.max(max_name, vim.fn.strdisplaywidth(p.spec.name))
     end
 
     -- Render a plugin line
@@ -169,7 +169,8 @@ local function build_content()
     -- Byte offsets: icon starts at 3, name starts at 3 + #icon_bytes + 1
     local function render_plugin(p, icon, hl_group)
         local name = p.spec.name
-        local pad = string.rep(' ', max_name - #name + 2)
+        local name_width = vim.fn.strdisplaywidth(name)
+        local pad = string.rep(' ', max_name - name_width + 2)
         local version = get_version_str(p)
         local tag = p.spec.version and get_installed_tag(p.path) or nil
         local rev_short = p.rev and p.rev:sub(1, 7) or ''
@@ -561,15 +562,17 @@ open = function()
     local captured_winid = state.winid
     state.win_autocmd_id = api.nvim_create_autocmd('WinClosed', {
         buffer = state.bufnr,
-        once = true,
         callback = function(ev)
             -- Only clean up if the closed window matches the one we opened
-            if vim._tointeger(ev.match) ~= captured_winid then
+            if tonumber(ev.match) ~= captured_winid then
                 return
+            end
+            if state.win_autocmd_id then
+                pcall(api.nvim_del_autocmd, state.win_autocmd_id)
+                state.win_autocmd_id = nil
             end
             state.winid = nil
             state.bufnr = nil
-            state.win_autocmd_id = nil
             state.expanded = {}
             state.show_help = false
         end,
