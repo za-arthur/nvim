@@ -12,7 +12,7 @@ require("codecompanion").setup({
     chat = {
       adapter = {
         name = "copilot",
-        model = "gemini-3.1-pro-preview",
+        model = "gpt-5.3-codex",
       },
     },
     inline = {
