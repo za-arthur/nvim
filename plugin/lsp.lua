@@ -13,7 +13,7 @@ vim.diagnostic.config({
   float = {
     focusable = false,
     style = "minimal",
-    source = true,
+    source = "always",
     header = "",
     prefix = "",
     severity = { min = vim.diagnostic.severity.WARN },
@@ -28,7 +28,7 @@ vim.diagnostic.config({
     severity = { min = vim.diagnostic.severity.WARN },
   },
   update_in_insert = false,
-  severity_sort = false,
+  severity_sort = true,
 })
 
 
@@ -36,16 +36,12 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
-    vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = ev.buf })
-
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev,
+    vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end,
       { buffer = ev.buf, silent = true, noremap = true, desc = "Previous diagnostic" })
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next,
+    vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end,
       { buffer = ev.buf, silent = true, noremap = true, desc = "Next diagnostic" })
-    vim.keymap.set("n", "<leader>K", function() vim.lsp.buf.hover({ border = "rounded" }) end,
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end,
       { buffer = ev.buf, silent = true, noremap = true, desc = "Display hover information" })
-    vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.signature_help({ border = "rounded" }) end,
-      { buffer = ev.buf, silent = true, noremap = true, desc = "Display signature information" })
 
     if not vim.b[ev.buf].lsp_cursorhold_float then
       vim.b[ev.buf].lsp_cursorhold_float = true

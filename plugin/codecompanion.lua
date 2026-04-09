@@ -11,8 +11,8 @@ require("codecompanion").setup({
   interactions = {
     chat = {
       adapter = {
-        name = "copilot",
-        model = "gpt-5.3-codex",
+        name = "copilot_acp",
+        model = "GPT-5.3-Codex",
       },
     },
     inline = {
