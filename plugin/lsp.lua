@@ -74,6 +74,15 @@ vim.lsp.enable("marksman")
 
 vim.lsp.config("pyright", {
   capabilities = capabilities,
+  settings = {
+    python = {
+      analysis = {
+        diagnosticSeverityOverrides = {
+          reportOptionalSubscript = "none",
+        },
+      },
+    },
+  },
 })
 vim.lsp.enable("pyright")
 
