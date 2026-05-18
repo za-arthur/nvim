@@ -13,11 +13,6 @@ require("tabby").setup({
     },
     nerdfont = true, -- whether use nerdfont
     lualine_theme = nil, -- lualine theme name
-    tab_name = {
-      name_fallback = function(tabid)
-        return tabid
-      end,
-    },
     buf_name = {
         mode = "'unique'|'relative'|'tail'|'shorten'",
     },
