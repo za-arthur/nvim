@@ -5,6 +5,6 @@ vim.pack.add({
 })
 
 require("render-markdown").setup({
-  file_types = { "markdown", "codecompanion" },
+  file_types = { "markdown", "codecompanion", "mdx" },
   latex = { enabled = false },
 })

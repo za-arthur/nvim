@@ -43,6 +43,14 @@ for _, parser in ipairs(parsers) do
   end
 end
 
+-- Configure MDX syntax highlight
+vim.filetype.add({
+  extension = {
+    mdx = 'mdx'
+  }
+})
+vim.treesitter.language.register('markdown', 'mdx')
+
 vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.wo[0][0].foldmethod = 'expr'
 
