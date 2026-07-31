@@ -38,6 +38,7 @@ require("snacks").setup({
         },
       },
     },
+    hidden = true,
   },
   explorer = { },
   bigfile = { },
