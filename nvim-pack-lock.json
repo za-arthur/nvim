@@ -42,7 +42,7 @@
       "src": "https://github.com/echasnovski/mini.indentscope"
     },
     "mini.sessions": {
-      "rev": "49f89c3cd35a4926e3f03f268b73da303aec1ad8",
+      "rev": "87d068a84abf6d687f7c68de2b496a9bd88bc533",
       "src": "https://github.com/echasnovski/mini.sessions"
     },
     "mini.surround": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "eda349094a87c6ff5a9c75bbbc88bce45836ae08",
+      "rev": "43a2ccf5618ea26a9b11575ff18ded1cc82746bf",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-lspconfig": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "3d3321b560a63ff92a8692401f303a5123336b86",
+      "rev": "c9f9ed6c1892f629ea399f4ee7905f2686fa13f2",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-context": {
