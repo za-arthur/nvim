@@ -8,11 +8,6 @@
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp"
     },
-    "codecompanion.nvim": {
-      "rev": "2b959b2bf5fdb13e3b333c078ba549996e477b7c",
-      "src": "https://github.com/olimorris/codecompanion.nvim",
-      "version": "19.0.0 - 20.0.0"
-    },
     "formatter.nvim": {
       "rev": "b9d7f853da1197b83b8edb4cc4952f7ad3a42e41",
       "src": "https://github.com/mhartington/formatter.nvim"
