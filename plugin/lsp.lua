@@ -92,11 +92,17 @@ vim.lsp.config("clangd", {
 })
 vim.lsp.enable("clangd")
 
+vim.lsp.config("gopls", {
+  capabilities = capabilities,
+})
+vim.lsp.enable("gopls")
+
 -- 6. Unified Installation Command
 local mason_tools = {
   -- LSPs
   "marksman",
   "pyright",
+  "gopls",
   -- Formatters
   "yamlfmt",
   "black",
