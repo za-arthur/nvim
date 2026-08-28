@@ -53,15 +53,15 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "4e73e57008df10f9971b60c3a11e6aa11ba9f94a",
+      "rev": "e766b3d8acef97e7e8b29f7f421aa4977b9978e1",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-lspconfig": {
-      "rev": "fbaef6156f9ad65790931ab543ab1dfec57bbec7",
+      "rev": "3928e638fdedf195b23ae5a18f024afa487982bc",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "074aa4422bf029908338e855d0c0f71470a971bb",
+      "rev": "8b98b4470eb326f1c7b50dae79f8c963568e5720",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-context": {
@@ -114,7 +114,7 @@
       "src": "https://github.com/tpope/vim-fugitive"
     },
     "vim-illuminate": {
-      "rev": "91313e598ca62e110bc71535c49069b66b9883c9",
+      "rev": "1cc33d347c574c3bd21a4852fc9ffed677c1c58c",
       "src": "https://github.com/RRethy/vim-illuminate"
     },
     "vscode.nvim": {
