@@ -97,12 +97,31 @@ vim.lsp.config("gopls", {
 })
 vim.lsp.enable("gopls")
 
+vim.lsp.config("rust_analyzer", {
+  capabilities = capabilities,
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = { buildScripts = { enable = false } },
+      procMacro = { enable = false },
+      checkOnSave = false,
+      cachePriming = { enable = false },
+      lens = { enable = false },
+      inlayHints = { enable = false },
+      completion = { autoimport = { enable = false } },
+      diagnostics = { experimental = { enable = false } },
+      files = { watcher = "server" },
+    },
+  },
+})
+vim.lsp.enable("rust_analyzer")
+
 -- 6. Unified Installation Command
 local mason_tools = {
   -- LSPs
   "marksman",
   "pyright",
   "gopls",
+  "rust-analyzer",
   -- Formatters
   "yamlfmt",
   "black",
